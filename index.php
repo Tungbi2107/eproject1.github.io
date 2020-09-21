@@ -30,33 +30,33 @@
 							<nav class="main_nav">
 								<ul>
 									<li class="hassubs active">
-										<a href="index.html">Home</a>
+										<a href="index.phpphp">Home</a>
 										<ul>
-											<li><a href="categories.html">Categories</a></li>
-											<li><a href="product.html">Product</a></li>
-											<li><a href="cart.html">Cart</a></li>
-											<li><a href="checkout.html">Check out</a></li>
-											<li><a href="contact.html">Contact</a></li>
+											<li><a href="categories.phpphp">Categories</a></li>
+											<li><a href="product.phpphp">Product</a></li>
+											<li><a href="cart.phpphp">Cart</a></li>
+											<li><a href="checkout.phpphp">Check out</a></li>
+											<li><a href="contact.phpphp">Contact</a></li>
 										</ul>
 									</li>
 									<li class="hassubs">
-										<a href="categories.html">Categories</a>
+										<a href="categories.phpphp">Categories</a>
 										<ul>
-											<li><a href="categories.html">Category</a></li>
-											<li><a href="categories.html">Category</a></li>
-											<li><a href="categories.html">Category</a></li>
-											<li><a href="categories.html">Category</a></li>
-											<li><a href="categories.html">Category</a></li>
+											<li><a href="categories.phpphp">Category</a></li>
+											<li><a href="categories.phpphp">Category</a></li>
+											<li><a href="categories.phpphp">Category</a></li>
+											<li><a href="categories.phpphp">Category</a></li>
+											<li><a href="categories.phpphp">Category</a></li>
 										</ul>
 									</li>
 									<li><a href="#">Accessories</a></li>
 									<li><a href="#">Offers</a></li>
-									<li><a href="contact.html">Contact</a></li>
+									<li><a href="contact.phpphp">Contact</a></li>
 								</ul>
 							</nav>
 							<div class="header_extra ml-auto">
 								<div class="shopping_cart">
-									<a href="cart.html">
+									<a href="cart.phpphp">
 										<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 												 viewBox="0 0 489 489" style="enable-background:new 0 0 489 489;" xml:space="preserve">
 											<g>
@@ -138,7 +138,7 @@
 				</div>
 				<ul class="page_menu_nav menu_mm">
 					<li class="page_menu_item has-children menu_mm">
-						<a href="index.html">Home<i class="fa fa-angle-down"></i></a>
+						<a href="index.phpphp">Home<i class="fa fa-angle-down"></i></a>
 						<ul class="page_menu_selection menu_mm">
 							<li class="page_menu_item menu_mm"><a href="categories.html">Categories<i class="fa fa-angle-down"></i></a></li>
 							<li class="page_menu_item menu_mm"><a href="product.html">Product<i class="fa fa-angle-down"></i></a></li>
