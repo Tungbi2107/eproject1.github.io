@@ -18,6 +18,7 @@
 										</ul>
 									</li>
 									<li class="hassubs">
+									<a href="categories.html">Categories</a>
 										<ul>
 											
 
