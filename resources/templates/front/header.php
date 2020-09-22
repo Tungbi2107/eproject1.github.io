@@ -20,11 +20,18 @@
 									<li class="hassubs">
 										<a href="categories.html">Categories</a>
 										<ul>
-											<li><a href="categories.html">Category</a></li>
-											<li><a href="categories.html">Category</a></li>
-											<li><a href="categories.html">Category</a></li>
-											<li><a href="categories.html">Category</a></li>
-											<li><a href="categories.html">Category</a></li>
+
+										<?php
+											$query = "SELECT * FROM categories";
+
+											$send_query = mysqli_query($connection,$query);
+											
+											while($row = mysqli_fetch_array($send_query)){
+												echo "<li><a href='#'>{$row['cat_title']}</a></li>";
+											}
+
+										?>
+											
 										</ul>
 									</li>
 									<li><a href="#">Accessories</a></li>
