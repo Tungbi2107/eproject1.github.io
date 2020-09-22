@@ -4,21 +4,25 @@
 				<div class="row">
 					<div class="col">
 						<div class="header_content d-flex flex-row align-items-center justify-content-start">
-							<div class="logo"><a href="#">Sublime.</a></div>
+							<div class="logo"><a href="index.php">COSY </a></div>
+
+
 							<nav class="main_nav">
 								<ul>
 									<li class="hassubs active">
 										<a href="index.html">Home</a>
 										<ul>
-											<li><a href="categories.html">Categories</a></li>
-											<li><a href="product.html">Product</a></li>
-											<li><a href="cart.html">Cart</a></li>
-											<li><a href="checkout.html">Check out</a></li>
-											<li><a href="contact.html">Contact</a></li>
+											<li><a href="categories.php">Categories</a></li>
+											<li><a href="product.php">Product</a></li>
+											<li><a href="cart.php">Cart</a></li>
+											<li><a href="checkout.php">Check out</a></li>
+											<li><a href="contact.php">Contact</a></li>
 										</ul>
 									</li>
 									<li class="hassubs">
-										<a href="categories.html">Categories</a>
+
+										<a href="categories.php">Categories</a>
+
 										<ul>
 
 										<?php get_categories(); ?>
@@ -27,12 +31,12 @@
 									</li>
 									<li><a href="#">Accessories</a></li>
 									<li><a href="#">Offers</a></li>
-									<li><a href="contact.html">Contact</a></li>
+									<li><a href="contact.php">Contact</a></li>
 								</ul>
 							</nav>
 							<div class="header_extra ml-auto">
 								<div class="shopping_cart">
-									<a href="cart.html">
+									<a href="cart.php">
 										<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 												 viewBox="0 0 489 489" style="enable-background:new 0 0 489 489;" xml:space="preserve">
 											<g>
