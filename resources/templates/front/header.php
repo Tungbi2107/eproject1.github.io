@@ -5,10 +5,12 @@
 					<div class="col">
 						<div class="header_content d-flex flex-row align-items-center justify-content-start">
 							<div class="logo"><a href="index.php">COSY </a></div>
+
+
 							<nav class="main_nav">
 								<ul>
 									<li class="hassubs active">
-										<a href="index.php">Home</a>
+										<a href="index.html">Home</a>
 										<ul>
 											<li><a href="categories.php">Categories</a></li>
 											<li><a href="product.php">Product</a></li>
@@ -18,22 +20,17 @@
 										</ul>
 									</li>
 									<li class="hassubs">
-									<a href="categories.html">Categories</a>
+
+										<a href="categories.php">Categories</a>
+
 										<ul>
+
+										<?php get_categories(); ?>
 											
-
-										<?php
-											$query = "SELECT * FROM categories";
-
-											$send_query = mysqli_query($connection,$query);
-											
-											while($row = mysqli_fetch_array($send_query)){
-												echo "<li><a href='#'>{$row['cat_title']}</a></li>";
-											}
-
-										?>		
 										</ul>
 									</li>
+									<li><a href="#">Accessories</a></li>
+									<li><a href="#">Offers</a></li>
 									<li><a href="contact.php">Contact</a></li>
 								</ul>
 							</nav>
@@ -139,6 +136,8 @@
 							<li class="page_menu_item menu_mm"><a href="categories.html">Category<i class="fa fa-angle-down"></i></a></li>
 						</ul>
 					</li>
+					<li class="page_menu_item menu_mm"><a href="index.html">Accessories<i class="fa fa-angle-down"></i></a></li>
+					<li class="page_menu_item menu_mm"><a href="#">Offers<i class="fa fa-angle-down"></i></a></li>
 					<li class="page_menu_item menu_mm"><a href="contact.html">Contact<i class="fa fa-angle-down"></i></a></li>
 				</ul>
 			</div>
