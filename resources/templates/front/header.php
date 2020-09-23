@@ -9,19 +9,13 @@
 
 							<nav class="main_nav">
 								<ul>
-									<li class="hassubs active">
-										<a href="index.html">Home</a>
-										<ul>
-											<li><a href="categories.php">Categories</a></li>
-											<li><a href="product.php">Product</a></li>
-											<li><a href="cart.php">Cart</a></li>
-											<li><a href="checkout.php">Check out</a></li>
-											<li><a href="contact.php">Contact</a></li>
-										</ul>
+									<li class=" active">
+										<a href="index.php">Home</a>
+										
 									</li>
 									<li class="hassubs">
 
-										<a href="categories.php">Categories</a>
+										<a href="#">Categories</a>
 
 										<ul>
 
