@@ -92,20 +92,14 @@ DELIMETER;
         confirm($query);
 
         while( $row = fetch_array($query)){
-$total = <<<DELIMETER
-<div class="results">Showing <span>{$row['COUNT(product_id)']}</span> results</div>
-DELIMETER;
+			$total = <<<DELIMETER
+			<div class="results">Showing <span>{$row['COUNT(product_id)']}</span> results</div>
+			DELIMETER;
 
-            echo $total;
-        }
-    }
-    
-/*---------------------------------------------------BACK END -----------------------------------------------------*/
-/*---------------------------------------------------BACK END -----------------------------------------------------*/
-/*---------------------------------------------------BACK END -----------------------------------------------------*/
-
-
-	//     function cart(){
+						echo $total;
+					}
+				}
+    	//     function cart(){
 	// 		$query = query("SELECT * FROM products");
 	// 		confirm($query);
 	
@@ -144,6 +138,47 @@ DELIMETER;
 	// echo $product;
 	// 		}
 	// 	}
+/*---------------------------------------------------BACK END -----------------------------------------------------*/
+/*---------------------------------------------------BACK END -----------------------------------------------------*/
+/*---------------------------------------------------BACK END -----------------------------------------------------*/
 
+		function show_categories_in_admin(){
+			$query = "SELECT * FROM `categories`";
+			$category_query = query($query);
+			confirm($query);
+
+			while($row = fetch_array($category_query)){
+				$cat_id = $row['cat_id'];
+				$cat_title = $row['cat_title'];
+
+					$categories = <<<DELIMETER
+						<tr>
+							<td>{$cat_id}</td>
+							<td>{$cat_title}</td>
+							<td>
+								<a class="btn btn-danger" href="../../resources/templates/back/delete_category.php?id={$row['cat_id']}">Delete</a>
+								<a class="btn btn-info" href="#">Update</a>
+							</td>
+						</tr>
+					DELIMETER;
+									echo $categories;
+								}
+							}
+
+		function add_category(){
+			if(isset($_POST['add_category'])){
+
+				$cat_title = escape_string($_POST['cat_title']);
+				if(empty($cat_title) || $cat_title == ""){
+					echo "Category is not empty";
+				}
+				else{
+					$insert_cat = query("INSERT INTO `categories`(`cat_title`) VALUES ('{$cat_title}') ");
+					confirm($insert_cat);
+					redirect("categories.php");
+				}
+				
+			}
+		}					
 
 ?>
