@@ -32,22 +32,39 @@
 /*--------------------------------------------FRONT END -----------------------------------------------------*/
 /*--------------------------------------------FRONT END -----------------------------------------------------*/
 
+	function login_user(){
+		if(isset($_POST['submit'])){
 
+			$username = escape_string($_POST['username']);
+			$password = escape_string($_POST['pass']);
+
+			$query = query("SELECT * FROM users WHERE username = '{$username}' and password = '{$password}'");
+			confirm($query);
+			if(mysqli_num_rows($query)==0){
+				redirect('login.php');
+			}
+			else{
+				redirect('../public/admin/index.php');
+			}
+			}
+
+		}
+	
     function get_products(){
         $query = query("SELECT * FROM products");
         confirm($query);
 
         while( $row = fetch_array($query)){
-$product = <<<DELIMETER
-<div class="product">
-	<div class="product_image"><a href="product.php?id={$row['product_id']}"><img src="{$row['product_image']}" alt=""></a></div>
-		<div class="product_extra product_new"><a href="product.php?id={$row['product_id']}">New</a></div>
-			<div class="product_content">
-				<div class="product_title"><a href="product.php?id={$row['product_id']}">{$row['product_title']}</a></div>
-				<div class="product_price">&#36;{$row['product_price']}</div>
-			</div>
-</div>
-DELIMETER;
+				$product = <<<DELIMETER
+				<div class="product">
+					<div class="product_image"><a href="product.php?id={$row['product_id']}"><img src="{$row['product_image']}" alt=""></a></div>
+						<div class="product_extra product_new"><a href="product.php?id={$row['product_id']}">New</a></div>
+							<div class="product_content">
+								<div class="product_title"><a href="product.php?id={$row['product_id']}">{$row['product_title']}</a></div>
+								<div class="product_price">&#36;{$row['product_price']}</div>
+							</div>
+				</div>
+				DELIMETER;
 
             echo $product;
         }
@@ -58,13 +75,13 @@ DELIMETER;
         confirm($query);
         
         while($row = fetch_array($query)){
-$category_links = <<<DELIMETER
-<li><a href='categories.php?id={$row['cat_id']}'>{$row['cat_title']}</a></li>
-DELIMETER;
+		$category_links = <<<DELIMETER
+			<li><a href='categories.php?id={$row['cat_id']}'>{$row['cat_title']}</a></li>
+			DELIMETER;
 
-            echo $category_links;
-        }
-    }
+						echo $category_links;
+					}
+		}
 
 
     function get_products_in_cat_page(){
@@ -72,18 +89,17 @@ DELIMETER;
         confirm($query);
 
         while( $row = fetch_array($query)){
-$product = <<<DELIMETER
-<div class="product">
-	<div class="product_image"><a href="product.php?id={$row['product_id']}"><img src="{$row['product_image']}" alt=""></a></div>
-		<div class="product_extra product_new"><a href="product.php?id={$row['product_id']}">New</a></div>
-			<div class="product_content">
-				<div class="product_title"><a href="product.php?id={$row['product_id']}">{$row['product_title']}</a></div>
-				<div class="product_price">&#36;{$row['product_price']}</div>
+			$product = <<<DELIMETER
+			<div class="product">
+				<div class="product_image"><a href="product.php?id={$row['product_id']}"><img src="{$row['product_image']}" alt=""></a></div>
+					<div class="product_extra product_new"><a href="product.php?id={$row['product_id']}">New</a></div>
+						<div class="product_content">
+							<div class="product_title"><a href="product.php?id={$row['product_id']}">{$row['product_title']}</a></div>
+							<div class="product_price">&#36;{$row['product_price']}</div>
+						</div>
 			</div>
-</div>
-DELIMETER;
-
-            echo $product;
+			DELIMETER;
+        echo $product;
         }
     }
 
@@ -179,6 +195,28 @@ DELIMETER;
 				}
 				
 			}
-		}					
+		}			
+		
+		function get_products_in_admin(){
+			$query = query("SELECT * FROM products");
+			confirm($query);
+	
+			while( $row = fetch_array($query)){
+					$product = <<<DELIMETER
+					<tr>
+						<td>{$row['product_id']}</td>
+						<td>{$row['product_title']}<br></td>
+						<td>
+						<img src="{$row['product_image']}" style="width:10%">
+						</td>
+						<td>{$row['product_category_id']}</td>
+						<td>{$row['product_price']}</td>
+						<td> <a class="btn btn-danger" href="../../resources/templates/back/delete_product.php?id={$row['product_id']}">Delete</a></td>
+					</tr>
+					DELIMETER;
+	
+				echo $product;
+			}
+		}
 
 ?>
