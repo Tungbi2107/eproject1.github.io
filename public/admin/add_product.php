@@ -1,6 +1,6 @@
 <?php require_once("../../resources/config.php"); ?>
 <?php include(TEMPLATE_BACK . DS . "header.php"); ?>
-
+<?php add_product() ?>
 
 
         <div id="page-wrapper">
@@ -75,9 +75,10 @@
 
     <div class="form-group">
          <label for="product-title">Product Category</label>
-          <hr>
-        <select name="product_category" id="" class="form-control">
+        <select name="product_category_id" id="" class="form-control">
+
             <option value="">Select Category</option>
+            <?php show_categories_in_add_product() ?>
            
         </select>
 
@@ -92,10 +93,9 @@
 
 
     <div class="form-group">
-      <label for="product-title">Product Brand</label>
-         <select name="product_brand" id="" class="form-control">
-            <option value="">Select Brand</option>
-         </select>
+      <label for="product-title">Product Quantity</label>
+         <input name="product_quantity" id="" class="form-control" type="number">
+           
     </div>
 
 
@@ -104,7 +104,6 @@
 
     <div class="form-group">
           <label for="product-title">Product Keywords</label>
-          <hr>
         <input type="text" name="product_tags" class="form-control">
     </div>
 

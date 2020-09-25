@@ -22,6 +22,7 @@
            <th>Title</th>
            <th>Image</th>
            <th>Category</th>
+           <th>Quantity</th>
            <th>Price</th>
            
       </tr>

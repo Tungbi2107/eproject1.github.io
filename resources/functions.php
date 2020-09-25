@@ -196,7 +196,20 @@
 				
 			}
 		}			
-		
+		function show_categories_in_add_product(){
+			$query = query("SELECT DISTINCT product_category_id FROM `products`");
+			confirm($query);
+
+			while($row = fetch_array($query)){
+				$product = <<<DELIMETER
+				<option value="{$row['product_category_id']}">{$row['product_category_id']}</option>
+			DELIMETER;
+							echo $product;
+						}
+					}
+
+
+
 		function get_products_in_admin(){
 			$query = query("SELECT * FROM products");
 			confirm($query);
@@ -205,18 +218,39 @@
 					$product = <<<DELIMETER
 					<tr>
 						<td>{$row['product_id']}</td>
-						<td>{$row['product_title']}<br></td>
+						<td>{$row['product_title']}</td>
 						<td>
-						<img src="{$row['product_image']}" style="width:10%">
+						<img src="../../resources/uploads/{$row['product_image']}" style="width:10%">
 						</td>
 						<td>{$row['product_category_id']}</td>
+						<td>{$row['product_quantity']}</td>
 						<td>{$row['product_price']}</td>
 						<td> <a class="btn btn-danger" href="../../resources/templates/back/delete_product.php?id={$row['product_id']}">Delete</a></td>
+						<td> <a class="btn btn-info" href="#">Update</a></td>
 					</tr>
 					DELIMETER;
 	
 				echo $product;
 			}
 		}
+		function add_product(){
+			if(isset($_POST['publish'])){
+
+				$product_title = escape_string($_POST['product_title']);
+				$product_id = escape_string($_POST['product_id']);
+				$product_category_id = escape_string($_POST['product_category_id']);
+				$product_price = escape_string($_POST['product_price']);
+				$product_quantity = escape_string($_POST['product_quantity']);
+				$product_description = escape_string($_POST['product_description']);
+				$product_image = escape_string($_FILES['file']['name']);
+				$image_temp_location = escape_string($_FILES['file']['tmp_name']);
+
+				move_uploaded_file($image_temp_location,UPLOAD_DIRECTORY . DS .$product_image);
+				$insert_product = query("INSERT INTO `products`(`product_title`, `product_category_id`, `product_price`, `product_quantity`, `product_description`, `product_image`) VALUES ('{$product_title}','{$product_category_id}','{$product_price}','{$product_quantity}','{$product_description}','{$product_image}') ");
+					confirm($insert_product);
+					redirect("add_product.php");
+				}
+				
+			}
 
 ?>
