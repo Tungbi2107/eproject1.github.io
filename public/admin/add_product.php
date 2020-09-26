@@ -1,137 +1,86 @@
 <?php require_once("../../resources/config.php"); ?>
 <?php include(TEMPLATE_BACK . DS . "header.php"); ?>
-<?php add_product() ?>
-
-
-        <div id="page-wrapper">
-
-            <div class="container-fluid">
-
-
-
-
-
-
-<div class="col-md-12">
-
-<div class="row">
-<h1 class="page-header">
-   Add Product
-
-</h1>
-</div>
-               
-
-
-<form action="" method="post" enctype="multipart/form-data">
-
-
-<div class="col-md-8">
-
-<div class="form-group">
-    <label for="product-title">Product Title </label>
-        <input type="text" name="product_title" class="form-control">
-       
-    </div>
-
-
-    <div class="form-group">
-           <label for="product-title">Product Description</label>
-      <textarea name="product_description" id="" cols="30" rows="10" class="form-control"></textarea>
-    </div>
-
-
-
-    <div class="form-group row">
-
-      <div class="col-xs-3">
-        <label for="product-price">Product Price</label>
-        <input type="number" name="product_price" class="form-control" size="60">
-      </div>
-    </div>
-
-
-
-
-    
-    
-
-</div><!--Main Content-->
-
-
-<!-- SIDEBAR-->
-
-
-<aside id="admin_sidebar" class="col-md-4">
-
-     
-     <div class="form-group">
-       <input type="submit" name="draft" class="btn btn-warning btn-lg" value="Draft">
-        <input type="submit" name="publish" class="btn btn-primary btn-lg" value="Publish">
-    </div>
-
-
-     <!-- Product Categories-->
-
-    <div class="form-group">
-         <label for="product-title">Product Category</label>
-        <select name="product_category_id" id="" class="form-control">
-
-            <option value="">Select Category</option>
-            <?php show_categories_in_add_product() ?>
-           
-        </select>
-
-
-</div>
-
-
-
-
-
-    <!-- Product Brands-->
-
-
-    <div class="form-group">
-      <label for="product-title">Product Quantity</label>
-         <input name="product_quantity" id="" class="form-control" type="number">
-           
-    </div>
-
-
-<!-- Product Tags -->
-
-
-    <div class="form-group">
-          <label for="product-title">Product Keywords</label>
-        <input type="text" name="product_tags" class="form-control">
-    </div>
-
-    <!-- Product Image -->
-    <div class="form-group">
-        <label for="product-title">Product Image</label>
-        <input type="file" name="file">
-      
-    </div>
-
-
-
-</aside><!--SIDEBAR-->
-
-
-    
-</form>
-
-
-
-                
-
-
-
+<?php add_product(); ?>
+<div class="dashboard-wrapper">
+    <div class="container-fluid dashboard-content">
+        <!-- ============================================================== -->
+        <!-- pageheader -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                <div class="page-header">
+                    <h2 class="pageheader-title">Add Product</h2>
+                    <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce
+                        sit amet vestibulum mi. Morbi lobortis pulvinar quam.</p>
+                    <div class="page-breadcrumb">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a>
+                                </li>
+                                <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Pages</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Add Product</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
             </div>
-            <!-- /.container-fluid -->
-
         </div>
-        <!-- /#page-wrapper -->
+        <!-- ============================================================== -->
+        <!-- end pageheader -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                <form id="form" data-parsley-validate="" novalidate="" method="POST" action="" enctype="multipart/form-data">
 
-        <?php include(TEMPLATE_BACK . DS . "footer.php"); ?>
+                    <div class="form-group row">
+                        <label for="inputEmail2" class="col-3 col-lg-2 col-form-label text-right">Product Title</label>
+                        <div class="col-9 col-lg-10">
+                            <input id="inputEmail2" type="text" required="" data-parsley-type="" placeholder=""
+                                class="form-control" name="product_title">
+                        </div>
+                    </div>
+
+                    <div class="form-group row"> 
+                        <label for="inputEmail2" class="col-3 col-lg-2 col-form-label text-right">Product Category</label>
+                        <div class="col-9 col-lg-10"> 
+                            <select class="form-control" id="input-select" name="product_category_id">
+                                <option >Choose Category</option>
+                                <?php show_categories_in_add_product()?>
+                            </select> </div>
+                    </div>
+                    <div class="form-group row"> 
+                        <label for="inputEmail2" class="col-3 col-lg-2 col-form-label text-right">Product Quantity</label>
+                        <div class="col-9 col-lg-10"> <input type="number" required="" class="form-control" name="product_quantity"> </div>
+                    </div>
+                    <div class="form-group row">
+                         <label for="inputEmail2" class="col-3 col-lg-2 col-form-label text-right">Product Price</label>
+                        <div class="col-9 col-lg-10">
+                            <input type="number" required="" class="form-control" name="product_price"> 
+                        </div>
+                    </div>
+                    <div class="form-group row"> 
+                        <label class="col-3 col-lg-2 col-form-label text-right">Description</label>
+                        <div class="col-9 col-lg-10"> 
+                            <textarea required="" class="form-control" rows="7" name="product_description"></textarea>
+                        </div>
+                    </div>
+                    <div class="custom-file col-10 col-lg-10 row" style="margin-left: 270px;"> 
+                        <input type="file" class="custom-file-input" id="customFile" name="file"> 
+                        <label class="custom-file-label" for="customFile">Choose Image</label> 
+                    </div>
+                    <div class="row pt-2 pt-sm-5 mt-1">
+                        <div class="col-sm-6 pl-0">
+                            <p class="text-right"> 
+                                <button type="submit" class="btn btn-space btn-primary" name="add_product">Add  Product</button> 
+                                <button class="btn btn-space btn-secondary">Cancel</button>
+                            </p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- footer -->
+    <!-- ============================================================== -->
+    <?php include(TEMPLATE_BACK . DS . "footer.php"); ?>

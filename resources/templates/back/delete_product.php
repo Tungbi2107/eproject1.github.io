@@ -5,7 +5,8 @@
         $query_delete = query("DELETE FROM `products` WHERE product_id = ". escape_string($_GET['id']) . "");
         confirm($query_delete);
         
-        redirect("../../../public/admin/products.php");
+        redirect("../../../public/admin/view_product.php");
+     
     }
     
 ?>
