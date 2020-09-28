@@ -278,7 +278,7 @@
 					$image_temp_location = escape_string($_FILES['file']['tmp_name']);
 	
 					move_uploaded_file($image_temp_location,UPLOAD_DIRECTORY . DS .$product_image);
-					$insert_product = query("UPDATE `products` SET `product_title`='{$product_title}',`product_category_id`='{$product_category_id}',`product_price`='{$product_price}',`product_quantity`='{$product_quantity}',`product_description`='{$product_description}',`product_image`='{$product_image}' WHERE");
+					$insert_product = query("UPDATE `products` SET `product_title`='{$product_title}',`product_category_id`='{$product_category_id}',`product_price`='{$product_price}',`product_quantity`='{$product_quantity}',`product_description`='{$product_description}',`product_image`='{$product_image}' WHERE product_id = ". escape_string($_GET['id']) . " ");
 						confirm($insert_product);
 						redirect("view_product.php");
 					}
