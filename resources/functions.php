@@ -173,7 +173,7 @@
 							<td>{$cat_title}</td>
 							<td>
 								<a class="btn btn-danger" href="../../resources/templates/back/delete_category.php?id={$row['cat_id']}">Delete</a>
-								<a class="btn btn-info" href="#">Update</a>
+								<a class="btn btn-info" href="../../public/admin/update_category.php?id={$row['cat_id']}">Update</a>
 							</td>
 						</tr>
 					DELIMETER;
@@ -190,6 +190,21 @@
 				}
 				else{
 					$insert_cat = query("INSERT INTO `categories`(`cat_title`) VALUES ('{$cat_title}') ");
+					confirm($insert_cat);
+					redirect("categories.php");
+				}
+				
+			}
+		}			
+		function update_category(){
+			if(isset($_POST['update_category'])){
+
+				$cat_title = escape_string($_POST['cat_title']);
+				if(empty($cat_title) || $cat_title == ""){
+					echo "Category is not empty";
+				}
+				else{
+					$insert_cat = query("UPDATE `categories` SET `cat_title`= '{$cat_title}' WHERE cat_id = ". escape_string($_GET['id']) . "");
 					confirm($insert_cat);
 					redirect("categories.php");
 				}
@@ -225,7 +240,7 @@
 						<!-- <td>{$row['product_description']}</td> -->
 						<td> 
 							<a class="btn btn-danger" href="../../resources/templates/back/delete_product.php?id={$row['product_id']}">Delete</a>
-							 <a class="btn btn-info" href="#">Update</a>
+							 <a class="btn btn-info" href="../admin/update_product.php?id={$row['product_id']}">Update</a>
 							 </td>
 					</tr>
 					DELIMETER;
@@ -251,5 +266,23 @@
 				}
 				
 			}
+			function update_product(){
+				if(isset($_POST['update_product'])){
+	
+					$product_title = escape_string($_POST['product_title']);
+					$product_category_id = escape_string($_POST['product_category_id']);
+					$product_price = escape_string($_POST['product_price']);
+					$product_quantity = escape_string($_POST['product_quantity']);
+					$product_description = escape_string($_POST['product_description']);
+					$product_image = escape_string($_FILES['file']['name']);
+					$image_temp_location = escape_string($_FILES['file']['tmp_name']);
+	
+					move_uploaded_file($image_temp_location,UPLOAD_DIRECTORY . DS .$product_image);
+					$insert_product = query("UPDATE `products` SET `product_title`='{$product_title}',`product_category_id`='{$product_category_id}',`product_price`='{$product_price}',`product_quantity`='{$product_quantity}',`product_description`='{$product_description}',`product_image`='{$product_image}' WHERE");
+						confirm($insert_product);
+						redirect("view_product.php");
+					}
+					
+				}	
 
 ?>
