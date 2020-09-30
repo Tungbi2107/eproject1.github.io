@@ -33,13 +33,13 @@
                                 </div>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#" data-toggle="" aria-expanded="false" data-target="#submenu-5" aria-controls="submenu-5"><i class=" fab fa-first-order"></i>Order</a>
+                                <a class="nav-link" href="order.php" data-toggle="" aria-expanded="false" data-target="#submenu-5" aria-controls="submenu-5"><i class=" fab fa-first-order"></i>Order</a>
                                 <div id="submenu-5" class="collapse submenu" style="">
                                     
                                 </div>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#" data-toggle="" aria-expanded="false" data-target="#submenu-5" aria-controls="submenu-5"><i class=" fas fa-user"></i>User</a>
+                                <a class="nav-link" href="user.php" data-toggle="" aria-expanded="false" data-target="#submenu-5" aria-controls="submenu-5"><i class=" fas fa-user"></i>User</a>
                                 <div id="submenu-5" class="collapse submenu" style="">
                                     
                                 </div>

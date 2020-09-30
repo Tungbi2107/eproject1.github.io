@@ -1,6 +1,7 @@
 <?php require_once("../resources/config.php"); ?>
 <?php include(TEMPLATE_FRONT . DS . "header.php"); ?>
 <?php include(TEMPLATE_FRONT . DS . "footer.php"); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -115,11 +116,11 @@
 	<div class="avds">
 		<div class="avds_container d-flex flex-lg-row flex-column align-items-start justify-content-between">
 			<div class="avds_small">
-				<div class="avds_background" style="background-image:url(images/avds_small.jpg)"></div>
+				<div class="avds_background" style="background-image:url(images/avds_small1.jpg)"></div>
 				<div class="avds_small_inner">
 					<div class="avds_discount_container">
 						<img src="images/discount.png" alt="">
-						<div>
+						<div>	 
 							<div class="avds_discount">
 								<div>20<span>%</span></div>
 								<div>Discount</div>
@@ -127,8 +128,8 @@
 						</div>
 					</div>
 					<div class="avds_small_content">
-						<div class="avds_title">Smart Phones</div>
-						<div class="avds_link"><a href="categories.html">See More</a></div>
+						<div class="avds_title text-dark" >Air Conditional</div>
+						<div class="avds_link text-dark"><a href="categories.php" class="text-dark">See More</a></div>
 					</div>
 				</div>
 			</div>
@@ -272,5 +273,6 @@
 <script src="plugins/easing/easing.js"></script>
 <script src="plugins/parallax-js-master/parallax.min.js"></script>
 <script src="js/custom.js"></script>
+<script src="https://use.fontawesome.com/fc7039ab54.js"></script>
 </body>
 </html>

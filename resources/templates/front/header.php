@@ -1,3 +1,4 @@
+<?php require_once("../resources/config.php"); ?>
 <header class="header">
 		<div class="header_container">
 			<div class="container">
@@ -86,6 +87,7 @@
 				</div>
 			</div>
 		</div>
+		
 
 		<!-- Social -->
 		<div class="header_social">

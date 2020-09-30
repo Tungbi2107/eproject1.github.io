@@ -33,22 +33,42 @@
 /*--------------------------------------------FRONT END -----------------------------------------------------*/
 
 	function login_user(){
+		if(isset($_POST['submit'])){	
+		$username = escape_string($_POST['username']);
+		$password = escape_string($_POST['pass']);
+		$query = query("SELECT * FROM users WHERE username = '{$username}' and password = '{$password}'");
+			confirm($query);
+			if(mysqli_num_rows($query)==1){
+				$_SESSION['username'] = $username;
+				$row=fetch_array($query);
+				if ($row['level']==1){
+					redirect('../public/admin/index.php');
+			}
+				if($row['level']==0) {
+						redirect('../public/index.php');
+			}
+			}
+			else{
+				redirect('login.php');
+			}
+		}
+			}
+
+	function signup_user(){
 		if(isset($_POST['submit'])){
 
 			$username = escape_string($_POST['username']);
-			$password = escape_string($_POST['pass']);
-
-			$query = query("SELECT * FROM users WHERE username = '{$username}' and password = '{$password}'");
-			confirm($query);
-			if(mysqli_num_rows($query)==0){
-				redirect('login.php');
-			}
-			else{
-				redirect('../public/admin/index.php');
-			}
-			}
-
-		}
+			$password = escape_string($_POST['password']);
+			$email = escape_string($_POST['email']);
+			$phonenumber = escape_string($_POST['phonenumber']);
+			$confirmpassword = escape_string($_POST['confirmpassword']);
+		if($confirmpassword==$password)
+		{
+		$query = query("INSERT INTO `users`(`username`, `password`, `email`, `phonenumber`) VALUES ('$username','$password','$email','$phonenumber'");
+		confirm($query);
+	}
+	}
+	}
 	
     function get_products(){
         $query = query("SELECT * FROM products");
@@ -68,7 +88,7 @@
 
             echo $product;
         }
-    }
+	}
 
     function get_categories(){
         $query = query("SELECT * FROM categories");
@@ -284,5 +304,27 @@
 					}
 					
 				}	
+				function get_users_in_admin(){
+					$query = query("SELECT * FROM users");
+					confirm($query);
+			
+					while( $row = fetch_array($query)){
+							$product = <<<DELIMETER
+							<tr>
+								<td>{$row['user_id']}</td>
+								<td>{$row['username']}</td>
+								<td>{$row['email']}</td>
+								<td>{$row['phonenumber']}</td>
+								<td>{$row['level']}</td>
+								<td> 
+									<a class="btn btn-danger" href="../../resources/templates/back/delete_product.php?id={$row['user_id']}">Delete</a>
+									 <a class="btn btn-info" href="../admin/update_product.php?id={$row['user_id']}">Update</a>
+									 </td>
+							</tr>
+							DELIMETER;
+			
+						echo $product;
+					}
+				}
 
 ?>
