@@ -64,9 +64,16 @@
                             <textarea required="" class="form-control" rows="7" name="product_description"></textarea>
                         </div>
                     </div>
-                    <div class="custom-file col-10 col-lg-10 row" style="margin-left: 270px;"> 
+                    
+                    <div class="custom-file col-12 col-lg-10 row " > 
                         <input type="file" class="custom-file-input" id="customFile" name="file"> 
                         <label class="custom-file-label" for="customFile">Choose Image</label> 
+                    </div>
+                    <br>
+                    <br>
+                    <div class="custom-file col-10 col-lg-10 row" > 
+                        <input type="file" class="custom-file-input" id="customFile" name="file1"> 
+                        <label class="custom-file-label" for="customFile">Choose Word Description</label> 
                     </div>
                     <div class="row pt-2 pt-sm-5 mt-1">
                         <div class="col-sm-6 pl-0">

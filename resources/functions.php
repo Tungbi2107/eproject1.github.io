@@ -279,8 +279,13 @@
 				$product_image = escape_string($_FILES['file']['name']);
 				$image_temp_location = escape_string($_FILES['file']['tmp_name']);
 
+				$product_word = escape_string($_FILES['file1']['name']);
+				$word_temp_location = escape_string($_FILES['file1']['tmp_name']);
+				
+
 				move_uploaded_file($image_temp_location,UPLOAD_DIRECTORY . DS .$product_image);
-				$insert_product = query("INSERT INTO `products`(`product_title`, `product_category_id`, `product_price`, `product_quantity`, `product_description`, `product_image`) VALUES ('{$product_title}','{$product_category_id}','{$product_price}','{$product_quantity}','{$product_description}','{$product_image}') ");
+				move_uploaded_file($word_temp_location,UPLOAD_DIRECTORY . DS .$product_word);
+				$insert_product = query("INSERT INTO `products`(`product_title`, `product_category_id`, `product_price`, `product_quantity`, `product_description`, `product_image`,`product_word`) VALUES ('{$product_title}','{$product_category_id}','{$product_price}','{$product_quantity}','{$product_description}','{$product_image}','{$product_word}') ");
 					confirm($insert_product);
 					redirect("add_product.php");
 				}
