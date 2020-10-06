@@ -50,7 +50,7 @@
                                         <thead>
                                             <tr>
                                                 <th>ID</th>
-                                                <th>Produc Category ID</th>
+                                                <th>Product Category ID</th>
                                                 <th>Title</th>
                                                 <th>Product Price</th>
                                                 <th>Product Quantity</th>

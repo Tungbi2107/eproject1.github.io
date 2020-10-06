@@ -1,6 +1,6 @@
 <?php require_once("../resources/config.php"); ?>
 <?php include(TEMPLATE_FRONT . DS . "header.php"); ?>
-<?php include(TEMPLATE_FRONT . DS . "footer.php"); ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -257,7 +257,7 @@
 	<!-- Footer -->
 	
 	<div class="footer_overlay"></div>
-	
+	<?php include(TEMPLATE_FRONT . DS . "footer.php"); ?>
 </div>
 
 <script src="js/jquery-3.2.1.min.js"></script>
