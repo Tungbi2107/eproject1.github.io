@@ -74,53 +74,10 @@
 									</div>
 								</div>
 								<div>
-									<!-- Company -->
-									<label for="checkout_company">Company</label>
-									<input type="text" id="checkout_company" class="checkout_input">
-								</div>
-								<div>
-									<!-- Country -->
-									<label for="checkout_country">Country*</label>
-									<select name="checkout_country" id="checkout_country" class="dropdown_item_select checkout_input" require="required">
-										<option></option>
-										<option>Lithuania</option>
-										<option>Sweden</option>
-										<option>UK</option>
-										<option>Italy</option>
-									</select>
-								</div>
-								<div>
 									<!-- Address -->
 									<label for="checkout_address">Address*</label>
 									<input type="text" id="checkout_address" class="checkout_input" required="required">
 									<input type="text" id="checkout_address_2" class="checkout_input checkout_address_2" required="required">
-								</div>
-								<div>
-									<!-- Zipcode -->
-									<label for="checkout_zipcode">Zipcode*</label>
-									<input type="text" id="checkout_zipcode" class="checkout_input" required="required">
-								</div>
-								<div>
-									<!-- City / Town -->
-									<label for="checkout_city">City/Town*</label>
-									<select name="checkout_city" id="checkout_city" class="dropdown_item_select checkout_input" require="required">
-										<option></option>
-										<option>City</option>
-										<option>City</option>
-										<option>City</option>
-										<option>City</option>
-									</select>
-								</div>
-								<div>
-									<!-- Province -->
-									<label for="checkout_province">Province*</label>
-									<select name="checkout_province" id="checkout_province" class="dropdown_item_select checkout_input" require="required">
-										<option></option>
-										<option>Province</option>
-										<option>Province</option>
-										<option>Province</option>
-										<option>Province</option>
-									</select>
 								</div>
 								<div>
 									<!-- Phone no -->
@@ -137,16 +94,6 @@
 										<input type="checkbox" id="checkbox_terms" name="regular_checkbox" class="regular_checkbox" checked="checked">
 										<label for="checkbox_terms"><img src="images/check.png" alt=""></label>
 										<span class="checkbox_title">Terms and conditions</span>
-									</div>
-									<div>
-										<input type="checkbox" id="checkbox_account" name="regular_checkbox" class="regular_checkbox">
-										<label for="checkbox_account"><img src="images/check.png" alt=""></label>
-										<span class="checkbox_title">Create an account</span>
-									</div>
-									<div>
-										<input type="checkbox" id="checkbox_newsletter" name="regular_checkbox" class="regular_checkbox">
-										<label for="checkbox_newsletter"><img src="images/check.png" alt=""></label>
-										<span class="checkbox_title">Subscribe to our newsletter</span>
 									</div>
 								</div>
 							</form>
@@ -190,20 +137,8 @@
 						<!-- Payment Options -->
 						<div class="payment">
 							<div class="payment_options">
-								<label class="payment_option clearfix">Paypal
-									<input type="radio" name="radio">
-									<span class="checkmark"></span>
-								</label>
 								<label class="payment_option clearfix">Cach on delivery
 									<input type="radio" name="radio">
-									<span class="checkmark"></span>
-								</label>
-								<label class="payment_option clearfix">Credit card
-									<input type="radio" name="radio">
-									<span class="checkmark"></span>
-								</label>
-								<label class="payment_option clearfix">Direct bank transfer
-									<input type="radio" checked="checked" name="radio">
 									<span class="checkmark"></span>
 								</label>
 							</div>

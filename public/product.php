@@ -1,6 +1,6 @@
 <?php require_once("../resources/config.php"); ?>
 <?php include(TEMPLATE_FRONT . DS . "header.php"); ?>
-<?php include(TEMPLATE_FRONT . DS . "footer.php"); ?>
+
 
 
 
@@ -79,7 +79,7 @@
 					<div class="details_content">
 						<div class="details_name"><?php echo $row['product_title']?></div>
 						<div class="details_discount">$890</div>
-						<div class="details_price"><?php echo $row['product_price']?></div>
+						<div class="details_price">&#36;<?php echo $row['product_price']?></div>
 
 						<!-- In Stock -->
 						<div class="in_stock_container">
@@ -88,6 +88,10 @@
 						</div>
 						<div class="details_text">
 						<?php echo $row['product_description']?>
+						<br>
+						<br>
+						<div class="availability">Download:</div>
+						<?php echo $row['product_word']?>
 						</div>
 
 						<!-- Product Quantity -->
@@ -149,42 +153,9 @@
 					<div class="product_grid">
 
 						<!-- Product -->
-						<div class="product">
-							<div class="product_image"><img src="images/product_1.jpg" alt=""></div>
-							<div class="product_extra product_new"><a href="categories.html">New</a></div>
-							<div class="product_content">
-								<div class="product_title"><a href="product.html">Smart Phone</a></div>
-								<div class="product_price">$670</div>
-							</div>
-						</div>
+						<?php relate_product() ?>
 
-						<!-- Product -->
-						<div class="product">
-							<div class="product_image"><img src="images/product_2.jpg" alt=""></div>
-							<div class="product_extra product_sale"><a href="categories.html">Sale</a></div>
-							<div class="product_content">
-								<div class="product_title"><a href="product.html">Smart Phone</a></div>
-								<div class="product_price">$520</div>
-							</div>
-						</div>
-
-						<!-- Product -->
-						<div class="product">
-							<div class="product_image"><img src="images/product_3.jpg" alt=""></div>
-							<div class="product_content">
-								<div class="product_title"><a href="product.html">Smart Phone</a></div>
-								<div class="product_price">$710</div>
-							</div>
-						</div>
-
-						<!-- Product -->
-						<div class="product">
-							<div class="product_image"><img src="images/product_4.jpg" alt=""></div>
-							<div class="product_content">
-								<div class="product_title"><a href="product.html">Smart Phone</a></div>
-								<div class="product_price">$330</div>
-							</div>
-						</div>
+						
 
 					</div>
 				</div>
@@ -221,7 +192,7 @@
 	<!-- Footer -->
 	
 	<div class="footer_overlay"></div>
-
+	<?php include(TEMPLATE_FRONT . DS . "footer.php"); ?>
 </div>
 
 <script src="js/jquery-3.2.1.min.js"></script>
