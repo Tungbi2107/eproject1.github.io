@@ -89,6 +89,25 @@
             echo $product;
         }
 	}
+	function get_products_4(){
+        $query = query("SELECT * FROM products limit 4");
+        confirm($query);
+
+        while( $row = fetch_array($query)){
+				$product = <<<DELIMETER
+				<div class="product">
+					<div class="product_image"><a href="product.php?id={$row['product_id']}"><img src="{$row['product_image']}"></a></div>
+						<div class="product_extra product_new"><a href="product.php?id={$row['product_id']}">New</a></div>
+							<div class="product_content">
+								<div class="product_title"><a href="product.php?id={$row['product_id']}">{$row['product_title']}</a></div>
+								<div class="product_price">&#36;{$row['product_price']}</div>
+							</div>
+				</div>
+				DELIMETER;
+
+            echo $product;
+        }
+	}
 
     function get_categories(){
         $query = query("SELECT * FROM categories");

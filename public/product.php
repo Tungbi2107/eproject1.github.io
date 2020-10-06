@@ -66,10 +66,10 @@
 					<div class="details_image">
 						<div class="details_image_large"><img src="<?php echo $row['product_image']?>" alt=""><div class="product_extra product_new"><a href="categories.html">New</a></div></div>
 						<div class="details_image_thumbnails d-flex flex-row align-items-start justify-content-between">
-							<div class="details_image_thumbnail active" data-image="<?php echo $row['product_image']?>"><img src="<?php echo $row['product_image']?>" alt=""></div>
+							<!-- <div class="details_image_thumbnail active" data-image="<?php echo $row['product_image']?>"><img src="<?php echo $row['product_image']?>" alt=""></div>
 							<div class="details_image_thumbnail" data-image="images/details_2.jpg"><img src="images/details_2.jpg" alt=""></div>
 							<div class="details_image_thumbnail" data-image="images/details_3.jpg"><img src="images/details_3.jpg" alt=""></div>
-							<div class="details_image_thumbnail" data-image="images/details_4.jpg"><img src="images/details_4.jpg" alt=""></div>
+							<div class="details_image_thumbnail" data-image="images/details_4.jpg"><img src="images/details_4.jpg" alt=""></div> -->
 						</div>
 					</div>
 				</div>
@@ -100,7 +100,7 @@
 									<div id="quantity_dec_button" class="quantity_dec quantity_control"><i class="fa fa-chevron-down" aria-hidden="true"></i></div>
 								</div>
 							</div>
-							<div class="button cart_button"><a href="<?php echo "cart.php?id={$row['product_id']}"?>">Add to cart</a></div>
+							<div class="button cart_button" name="add_to_cart"><a href="../resources/templates/back/add_cart.php?id=<?php echo "{$row['product_id']}"?>">Add to cart</a></div>
 						</div>
 
 						<!-- Share -->
@@ -121,7 +121,7 @@
 				<div class="col">
 					<div class="description_title_container">
 						<div class="description_title">Description</div>
-						<div class="reviews_title"><a href="#">Reviews <span>(1)</span></a></div>
+						<!-- <div class="reviews_title"><a href="#">Reviews <span>(1)</span></a></div> -->
 					</div>
 					<div class="description_text">
 
