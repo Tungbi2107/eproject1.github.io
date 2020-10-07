@@ -77,7 +77,7 @@
         while( $row = fetch_array($query)){
 				$product = <<<DELIMETER
 				<div class="product">
-					<div class="product_image"><a href="product.php?id={$row['product_id']}"><img src="{$row['product_image']}"></a></div>
+					<div class="product_image"><a href="product.php?id={$row['product_id']}"><img style="max-width: 100%;height: 280px;object-fit: contain;object-position: center center;" src="{$row['product_image']}"></a></div>
 						<div class="product_extra product_new"><a href="product.php?id={$row['product_id']}">New</a></div>
 							<div class="product_content">
 								<div class="product_title"><a href="product.php?id={$row['product_id']}">{$row['product_title']}</a></div>
@@ -111,7 +111,7 @@
         while( $row = fetch_array($query)){
 			$product = <<<DELIMETER
 			<div class="product">
-				<div class="product_image"><a href="product.php?id={$row['product_id']}"><img src="{$row['product_image']}" alt=""></a></div>
+				<div class="product_image"><a href="product.php?id={$row['product_id']}"><img style="max-width: 100%;height: 280px;object-fit: contain;object-position: center center;" src="{$row['product_image']}" alt=""></a></div>
 					<div class="product_extra product_new"><a href="product.php?id={$row['product_id']}">New</a></div>
 						<div class="product_content">
 							<div class="product_title"><a href="product.php?id={$row['product_id']}">{$row['product_title']}</a></div>

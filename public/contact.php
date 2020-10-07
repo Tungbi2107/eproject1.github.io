@@ -26,7 +26,7 @@
 
 	<div class="home">
 		<div class="home_container">
-			<div class="home_background" style="background-image:url(images/contact.jpg)"></div>
+			<div class="home_background" style="background-image:url(images/contact1.jpg)"></div>
 			<div class="home_content_container">
 				<div class="container">
 					<div class="row">
@@ -92,22 +92,22 @@
 						<div class="contact_info_section">
 							<div class="contact_info_title">Marketing</div>
 							<ul>
-								<li>Phone: <span>+53 345 7953 3245</span></li>
-								<li>Email: <span>yourmail@gmail.com</span></li>
+								<li>Phone: <span>+84 987 777 777</span></li>
+								<li>Email: <span><a href="https://gmail.com/" style="color: #6c6a74"> dth96@gmail.com </a></span></li>
 							</ul>
 						</div>
 						<div class="contact_info_section">
 							<div class="contact_info_title">Shippiing & Returns</div>
 							<ul>
-								<li>Phone: <span>+53 345 7953 3245</span></li>
-								<li>Email: <span>yourmail@gmail.com</span></li>
+								<li>Phone: <span>+84 999 99 9999</span></li>
+								<li>Email: <span><a href="https://gmail.com/" style="color: #6c6a74"> ndt1@gmail.com </a></span></li>
 							</ul>
 						</div>
 						<div class="contact_info_section">
 							<div class="contact_info_title">Information</div>
 							<ul>
-								<li>Phone: <span>+53 345 7953 3245</span></li>
-								<li>Email: <span>yourmail@gmail.com</span></li>
+								<li>Phone: <span>+84 969 69 69 69</span></li>
+								<li>Email: <span><a href="https://gmail.com/" style="color: #6c6a74">dat09@gmail.com</a></span></li>
 							</ul>
 						</div>
 					</div>
@@ -133,29 +133,7 @@
 	<!-- Footer -->
 	
 	<div class="footer_overlay"></div>
-	<footer class="footer">
-		<div class="footer_background" style="background-image:url(images/footer.jpg)"></div>
-		<div class="container">
-			<div class="row">
-				<div class="col">
-					<div class="footer_content d-flex flex-lg-row flex-column align-items-center justify-content-lg-start justify-content-center">
-						<div class="footer_logo"><a href="#">Sublime.</a></div>
-						<div class="copyright ml-auto mr-auto"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></div>
-						<div class="footer_social ml-lg-auto">
-							<ul>
-								<li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
-								<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-								<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-								<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</footer>
+	<?php include(TEMPLATE_FRONT . DS . "footer.php"); ?>
 </div>
 
 <script src="js/jquery-3.2.1.min.js"></script>

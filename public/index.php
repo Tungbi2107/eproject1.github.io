@@ -134,7 +134,7 @@
 				</div>
 			</div>
 			<div class="avds_large">
-				<div class="avds_background" style="background-image:url(images/avds_large.jpg)"></div>
+				<div class="avds_background" style="background-image:url(images/avds_large2.png)"></div>
 				<div class="avds_large_container">
 					<div class="avds_large_content">
 						<div class="avds_title">Professional Cameras</div>
@@ -173,7 +173,7 @@
 			<div class="row">
 				<div class="col">
 					<div class="avds_xl_container clearfix">
-						<div class="avds_xl_background" style="background-image:url(images/avds_xl.jpg)"></div>
+						<div class="avds_xl_background" style="background-image:url(images/avds_xl1.jpg)"></div>
 						<div class="avds_xl_content">
 							<div class="avds_title">Amazing Devices</div>
 							<div class="avds_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus.</div>
