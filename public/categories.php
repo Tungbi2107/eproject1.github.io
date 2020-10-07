@@ -16,6 +16,7 @@
 <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
 <link rel="stylesheet" type="text/css" href="styles/categories.css">
 <link rel="stylesheet" type="text/css" href="styles/categories_responsive.css">
+
 </head>
 <body>
 
@@ -80,7 +81,7 @@
 
 						<!-- Product -->
 						<?php get_products_in_cat_page(); ?>
-
+					
 						
 
 					</div>
@@ -185,5 +186,6 @@
 <script src="plugins/easing/easing.js"></script>
 <script src="plugins/parallax-js-master/parallax.min.js"></script>
 <script src="js/categories.js"></script>
+
 </body>
 </html>

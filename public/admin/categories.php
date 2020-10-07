@@ -1,5 +1,8 @@
 <?php require_once("../../resources/config.php"); ?>
 <?php include(TEMPLATE_BACK . DS . "header.php"); ?>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <div class="dashboard-wrapper">
             <div class="container-fluid dashboard-content">
                 <!-- ============================================================== -->
@@ -30,13 +33,12 @@
                 <div class="row">
                     <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
                         <form id="form" data-parsley-validate="" novalidate="" method="POST">
-                        <?php add_category();?>
+                       
                             <div class="form-group row"> <label for="inputEmail2"
                                     class="col-3 col-lg-2 col-form-label text-right">Category Title</label>
                                 <div class="col-9 col-lg-10"> <input id="" type="text" required=""
                                        placeholder="" class="form-control" name="cat_title"> </div>
                             </div>
-
                             <div class="row mt-3">
                                 <div class="col-sm-12 pl-0">
                                     <p class="text-right"> 
@@ -45,6 +47,8 @@
                                     </p>
                                 </div>
                             </div>
+                            <?php add_category();?>
+
                         </form>
                     </div>
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-6">

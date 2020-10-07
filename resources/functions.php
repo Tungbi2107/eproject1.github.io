@@ -77,10 +77,10 @@
         while( $row = fetch_array($query)){
 				$product = <<<DELIMETER
 				<div class="product">
-					<div class="product_image"><a href="product.php?id={$row['product_id']}"><img src="../resources/uploads/"{$row['product_image']}""></a></div>
-						<div class="product_extra product_new"><a href="product.php?id={$row['product_id']}">New</a></div>
+					<div class="product_image"><a href="product.php?id={$row['product_id']}&cat_id={$row['cat_id']}"><img src="../resources/uploads/{$row['product_image']}" alt=""></a></div>
+						<div class="product_extra product_new"><a href="product.php?id={$row['product_id']}&cat_id={$row['cat_id']}">New</a></div>
 							<div class="product_content">
-								<div class="product_title"><a href="product.php?id={$row['product_id']}">{$row['product_title']}</a></div>
+								<div class="product_title"><a href="product.php?id={$row['product_id']}&cat_id={$row['cat_id']}">{$row['product_title']}</a></div>
 								<div class="product_price">&#36;{$row['product_price']}</div>
 							</div>
 				</div>
@@ -96,10 +96,10 @@
         while( $row = fetch_array($query)){
 				$product = <<<DELIMETER
 				<div class="product">
-					<div class="product_image"><a href="product.php?id={$row['product_id']}"><img src="{$row['product_image']}"></a></div>
-						<div class="product_extra product_new"><a href="product.php?id={$row['product_id']}">New</a></div>
+					<div class="product_image"><a href="product.php?id={$row['product_id']}&cat_id={$row['cat_id']}"><img src="../resources/uploads/{$row['product_image']}" alt=""></a></div>
+						<div class="product_extra product_new"><a href="product.php?id={$row['product_id']}&cat_id={$row['cat_id']}">New</a></div>
 							<div class="product_content">
-								<div class="product_title"><a href="product.php?id={$row['product_id']}">{$row['product_title']}</a></div>
+								<div class="product_title"><a href="product.php?id={$row['product_id']}&cat_id={$row['cat_id']}">{$row['product_title']}</a></div>
 								<div class="product_price">&#36;{$row['product_price']}</div>
 							</div>
 				</div>
@@ -122,7 +122,24 @@
 					}
 		}
 
-
+		function get_all_products_in_cat_page(){
+			$query = query("SELECT * FROM products");
+			confirm($query);
+	
+			while( $row = fetch_array($query)){
+				$product = <<<DELIMETER
+				<div class="product">
+					<div class="product_image"><a href="product.php?id={$row['product_id']}&cat_id={$row['cat_id']}"><img src="../resources/uploads/{$row['product_image']}" alt=""></a></div>
+						<div class="product_extra product_new"><a href="product.php?id={$row['product_id']}&cat_id={$row['cat_id']}">New</a></div>
+							<div class="product_content">
+								<div class="product_title"><a href="product.php?id={$row['product_id']}&cat_id={$row['cat_id']}">{$row['product_title']}</a></div>
+								<div class="product_price">&#36;{$row['product_price']}</div>
+							</div>
+				</div>
+				DELIMETER;
+			echo $product;
+			}
+		}
     function get_products_in_cat_page(){
         $query = query("SELECT * FROM products WHERE cat_id = ". escape_string($_GET['id']) . "");
         confirm($query);
@@ -130,10 +147,10 @@
         while( $row = fetch_array($query)){
 			$product = <<<DELIMETER
 			<div class="product">
-				<div class="product_image"><a href="product.php?id={$row['product_id']}&cat_id={$row['cat_id']}"><img src="{$row['product_image']}" alt=""></a></div>
-					<div class="product_extra product_new"><a href="product.php?id={$row['product_id']}">New</a></div>
+				<div class="product_image"><a href="product.php?id={$row['product_id']}&cat_id={$row['cat_id']}"><img src="../resources/uploads/{$row['product_image']}" alt=""></a></div>
+					<div class="product_extra product_new"><a href="product.php?id={$row['product_id']}&cat_id={$row['cat_id']}">New</a></div>
 						<div class="product_content">
-							<div class="product_title"><a href="product.php?id={$row['product_id']}">{$row['product_title']}</a></div>
+							<div class="product_title"><a href="product.php?id={$row['product_id']}&cat_id={$row['cat_id']}">{$row['product_title']}</a></div>
 							<div class="product_price">&#36;{$row['product_price']}</div>
 						</div>
 			</div>
@@ -205,12 +222,32 @@
 
 				$cat_title = escape_string($_POST['cat_title']);
 				if(empty($cat_title) || $cat_title == ""){
-					echo "Category is not empty";
+					echo '<script type="text/javascript">toastr.success("Have Fun")</script>';
 				}
 				else{
 					$insert_cat = query("INSERT INTO `categories`(`cat_title`) VALUES ('{$cat_title}') ");
+					echo'<script type="text/javascript">
+					Command: toastr["success"]("My name is Inigo Montoya. You killed my father. Prepare to die!")
+					toastr.options = {
+					"closeButton": false,
+					"debug": false,
+					"newestOnTop": false,
+					"progressBar": false,
+					"positionClass": "toast-top-right",
+					"preventDuplicates": false,
+					"onclick": null,
+					"showDuration": "300",
+					"hideDuration": "1000",
+					"timeOut": "5000",
+					"extendedTimeOut": "1000",
+					"showEasing": "swing",
+					"hideEasing": "linear",
+					"showMethod": "fadeIn",
+					"hideMethod": "fadeOut",
+					}</script>';	
+					
 					confirm($insert_cat);
-					redirect("categories.php");
+									
 				}
 				
 			}

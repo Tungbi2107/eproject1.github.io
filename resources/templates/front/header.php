@@ -1,12 +1,11 @@
 <?php require_once("../resources/config.php"); ?>
 
 <?PHP 
-		session_start();
 		$cartCount = 0;
-
 		if(isset($_SESSION['cart'])) {
 			$cartCount = count($_SESSION['cart']);
 		}
+		
 ?>
 <header class="header">
 		<div class="header_container">

@@ -69,6 +69,7 @@
     <!-- Optional JavaScript -->
     <script src="../public/admin/assets/vendor/jquery/jquery-3.3.1.min.js"></script>
     <script src="../public/admin/assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+    
 </body>
  
 </html>

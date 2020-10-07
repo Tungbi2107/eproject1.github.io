@@ -274,5 +274,6 @@
 <script src="plugins/parallax-js-master/parallax.min.js"></script>
 <script src="js/custom.js"></script>
 <script src="https://use.fontawesome.com/fc7039ab54.js"></script>
+
 </body>
 </html>
