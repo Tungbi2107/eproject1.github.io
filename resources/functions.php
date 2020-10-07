@@ -89,6 +89,25 @@
             echo $product;
         }
 	}
+	function get_products_4(){
+        $query = query("SELECT * FROM products limit 4");
+        confirm($query);
+
+        while( $row = fetch_array($query)){
+				$product = <<<DELIMETER
+				<div class="product">
+					<div class="product_image"><a href="product.php?id={$row['product_id']}"><img src="{$row['product_image']}"></a></div>
+						<div class="product_extra product_new"><a href="product.php?id={$row['product_id']}">New</a></div>
+							<div class="product_content">
+								<div class="product_title"><a href="product.php?id={$row['product_id']}">{$row['product_title']}</a></div>
+								<div class="product_price">&#36;{$row['product_price']}</div>
+							</div>
+				</div>
+				DELIMETER;
+
+            echo $product;
+        }
+	}
 
     function get_categories(){
         $query = query("SELECT * FROM categories");
@@ -105,13 +124,31 @@
 
 
     function get_products_in_cat_page(){
-        $query = query("SELECT * FROM products WHERE product_category_id = ". escape_string($_GET['id']) . "");
+        $query = query("SELECT * FROM products WHERE cat_id = ". escape_string($_GET['id']) . "");
         confirm($query);
 
         while( $row = fetch_array($query)){
 			$product = <<<DELIMETER
 			<div class="product">
-				<div class="product_image"><a href="product.php?id={$row['product_id']}"><img style="max-width: 100%;height: 280px;object-fit: contain;object-position: center center;" src="{$row['product_image']}" alt=""></a></div>
+				<div class="product_image"><a href="product.php?id={$row['product_id']}&cat_id={$row['cat_id']}"><img src="{$row['product_image']}" alt=""></a></div>
+					<div class="product_extra product_new"><a href="product.php?id={$row['product_id']}">New</a></div>
+						<div class="product_content">
+							<div class="product_title"><a href="product.php?id={$row['product_id']}">{$row['product_title']}</a></div>
+							<div class="product_price">&#36;{$row['product_price']}</div>
+						</div>
+			</div>
+			DELIMETER;
+        echo $product;
+        }
+	}
+	function relate_product(){
+        $query = query("SELECT * FROM products WHERE cat_id = ". escape_string($_GET['cat_id']) .  " limit 4 ");
+        confirm($query);
+
+        while( $row = fetch_array($query)){
+			$product = <<<DELIMETER
+			<div class="product">
+				<div class="product_image"><a href="product.php?id={$row['product_id']}&cat_id={$row['cat_id']}"><img src="{$row['product_image']}" alt=""></a></div>
 					<div class="product_extra product_new"><a href="product.php?id={$row['product_id']}">New</a></div>
 						<div class="product_content">
 							<div class="product_title"><a href="product.php?id={$row['product_id']}">{$row['product_title']}</a></div>
@@ -124,7 +161,7 @@
     }
 
     function show_total_product(){
-        $query = query("SELECT COUNT(product_id) FROM products WHERE product_category_id = ". escape_string($_GET['id']) . "");
+        $query = query("SELECT COUNT(product_id) FROM products WHERE cat_id = ". escape_string($_GET['id']) . "");
         confirm($query);
 
         while( $row = fetch_array($query)){
@@ -135,45 +172,7 @@
 						echo $total;
 					}
 				}
-    	//     function cart(){
-	// 		$query = query("SELECT * FROM products");
-	// 		confirm($query);
-	
-	// 		while($row = fetch_array($query)){
-	// $product = <<<DELIMETER
-	// <div class="cart_item d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-start">
-	// 	<!-- Name -->
-	// 	<div class="cart_item_product d-flex flex-row align-items-center justify-content-start">
-	// 		<div class="cart_item_image">
-	// 			<div><img src="images/cart_1.jpg" alt=""></div>
-	// 		</div>
-	// 		<div class="cart_item_name_container">
-	// 			<div class="cart_item_name"><a href="#">Smart Phone Deluxe Edition</a></div>
-	// 			<div class="cart_item_edit"><a href="#">Edit Product</a></div>
-	// 		</div>
-	// 	</div>
-	// 	<!-- Price -->
-	// 	<div class="cart_item_price">$790.90</div>
-	// 	<!-- Quantity -->
-	// 	<div class="cart_item_quantity">
-	// 		<div class="product_quantity_container">
-	// 			<div class="product_quantity clearfix">
-	// 				<span>Qty</span>
-	// 				<input id="quantity_input" type="text" pattern="[0-9]*" value="1">
-	// 				<div class="quantity_buttons">
-	// 					<div id="quantity_inc_button" class="quantity_inc quantity_control"><i class="fa fa-chevron-up" aria-hidden="true"></i></div>
-	// 					<div id="quantity_dec_button" class="quantity_dec quantity_control"><i class="fa fa-chevron-down" aria-hidden="true"></i></div>
-	// 				</div>
-	// 			</div>
-	// 		</div>
-	// 	</div>
-	// 	<!-- Total -->
-	// 	<div class="cart_item_total">$790.90</div>
-	// </div>
-	// DELIMETER;
-	// echo $product;
-	// 		}
-	// 	}
+    
 /*---------------------------------------------------BACK END -----------------------------------------------------*/
 /*---------------------------------------------------BACK END -----------------------------------------------------*/
 /*---------------------------------------------------BACK END -----------------------------------------------------*/
@@ -232,12 +231,12 @@
 			}
 		}			
 		function show_categories_in_add_product(){
-			$query = query("SELECT DISTINCT product_category_id FROM `products`");
+			$query = query("SELECT DISTINCT cat_id FROM `products`");
 			confirm($query);
 
 			while($row = fetch_array($query)){
 				$product = <<<DELIMETER
-				<option value="{$row['product_category_id']}">{$row['product_category_id']}</option>
+				<option value="{$row['cat_id']}">{$row['cat_id']}</option>
 			DELIMETER;
 							echo $product;
 						}
@@ -253,7 +252,7 @@
 					$product = <<<DELIMETER
 					<tr>
 						<td>{$row['product_id']}</td>
-						<td>{$row['product_category_id']}</td>
+						<td>{$row['cat_id']}</td>
 						<td>{$row['product_title']}</td>
 						<td>{$row['product_price']}</td>
 						<td>{$row['product_quantity']}</td>	
@@ -272,7 +271,7 @@
 			if(isset($_POST['add_product'])){
 
 				$product_title = escape_string($_POST['product_title']);
-				$product_category_id = escape_string($_POST['product_category_id']);
+				$cat_id = escape_string($_POST['cat_id']);
 				$product_price = escape_string($_POST['product_price']);
 				$product_quantity = escape_string($_POST['product_quantity']);
 				$product_description = escape_string($_POST['product_description']);
@@ -285,7 +284,7 @@
 
 				move_uploaded_file($image_temp_location,UPLOAD_DIRECTORY . DS .$product_image);
 				move_uploaded_file($word_temp_location,UPLOAD_DIRECTORY . DS .$product_word);
-				$insert_product = query("INSERT INTO `products`(`product_title`, `product_category_id`, `product_price`, `product_quantity`, `product_description`, `product_image`,`product_word`) VALUES ('{$product_title}','{$product_category_id}','{$product_price}','{$product_quantity}','{$product_description}','{$product_image}','{$product_word}') ");
+				$insert_product = query("INSERT INTO `products`(`product_title`, `cat_id`, `product_price`, `product_quantity`, `product_description`, `product_image`,`product_word`) VALUES ('{$product_title}','{$cat_id}','{$product_price}','{$product_quantity}','{$product_description}','{$product_image}','{$product_word}') ");
 					confirm($insert_product);
 					redirect("add_product.php");
 				}
@@ -295,7 +294,7 @@
 				if(isset($_POST['update_product'])){
 	
 					$product_title = escape_string($_POST['product_title']);
-					$product_category_id = escape_string($_POST['product_category_id']);
+					$cat_id = escape_string($_POST['cat_id']);
 					$product_price = escape_string($_POST['product_price']);
 					$product_quantity = escape_string($_POST['product_quantity']);
 					$product_description = escape_string($_POST['product_description']);
@@ -303,7 +302,7 @@
 					$image_temp_location = escape_string($_FILES['file']['tmp_name']);
 	
 					move_uploaded_file($image_temp_location,UPLOAD_DIRECTORY . DS .$product_image);
-					$insert_product = query("UPDATE `products` SET `product_title`='{$product_title}',`product_category_id`='{$product_category_id}',`product_price`='{$product_price}',`product_quantity`='{$product_quantity}',`product_description`='{$product_description}',`product_image`='{$product_image}' WHERE product_id = ". escape_string($_GET['id']) . " ");
+					$insert_product = query("UPDATE `products` SET `product_title`='{$product_title}',`cat_id`='{$cat_id}',`product_price`='{$product_price}',`product_quantity`='{$product_quantity}',`product_description`='{$product_description}',`product_image`='{$product_image}' WHERE product_id = ". escape_string($_GET['id']) . " ");
 						confirm($insert_product);
 						redirect("view_product.php");
 					}

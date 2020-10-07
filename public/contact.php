@@ -1,6 +1,6 @@
 <?php require_once("../resources/config.php"); ?>
 <?php include(TEMPLATE_FRONT . DS . "header.php"); ?>
-<?php include(TEMPLATE_FRONT . DS . "footer.php"); ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -92,22 +92,22 @@
 						<div class="contact_info_section">
 							<div class="contact_info_title">Marketing</div>
 							<ul>
-								<li>Phone: <span>+84 987 777 777</span></li>
-								<li>Email: <span><a href="https://gmail.com/" style="color: #6c6a74"> dth96@gmail.com </a></span></li>
+								<li>Phone: <span>+53 345 7953 3245</span></li>
+								<li>Email: <span>cosy@gmail.com</span></li>
 							</ul>
 						</div>
 						<div class="contact_info_section">
 							<div class="contact_info_title">Shippiing & Returns</div>
 							<ul>
-								<li>Phone: <span>+84 999 99 9999</span></li>
-								<li>Email: <span><a href="https://gmail.com/" style="color: #6c6a74"> ndt1@gmail.com </a></span></li>
+								<li>Phone: <span>+53 345 7953 3245</span></li>
+								<li>Email: <span>cosy@gmail.com</span></li>
 							</ul>
 						</div>
 						<div class="contact_info_section">
 							<div class="contact_info_title">Information</div>
 							<ul>
-								<li>Phone: <span>+84 969 69 69 69</span></li>
-								<li>Email: <span><a href="https://gmail.com/" style="color: #6c6a74">dat09@gmail.com</a></span></li>
+								<li>Phone: <span>+53 345 7953 3245</span></li>
+								<li>Email: <span>cosy@gmail.com</span></li>
 							</ul>
 						</div>
 					</div>
@@ -120,7 +120,7 @@
 					<div class="map">
 						<div id="google_map" class="google_map">
 							<div class="map_container">
-								<div id="map"></div>
+							<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.734722425265!2d105.8472392154021!3d21.003268294022767!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ad58455db2ab%3A0x9b3550bc22fd8bb!2zNTQgTMOqIFRoYW5oIE5naOG7iywgQsOhY2ggS2hvYSwgSGFpIELDoCBUcsawbmcsIEjDoCBO4buZaSwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1601795939793!5m2!1svi!2s" width="100%" height="600" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
 							</div>
 						</div>
 					</div>
