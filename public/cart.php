@@ -3,32 +3,6 @@
 <?php include(TEMPLATE_FRONT . DS . "footer.php"); ?>
 
 
-
-<?php 
-// 	if(isset($_GET['add'])){
-// 	$query = query("SELECT * FROM products WHERE product_id =". escape_string($_GET['add']) . "");
-// 	confirm($query);
-
-// 	while($row=fetch_array($query)){
-// 		if($row['product_quantity'] != $_SESSION['product_'.$_GET['add']]){
-// 			$_SESSION['product_'. $_GET['add']]+=1;
-// 			redirect("cart.php");
-// 		}else{
-// 			set_message("We have ".$row['product_quantity']." "."{$row['product_title']}" ."Available");
-// 			redirect("cart.php");
-// 		}
-// 	}
-// }
-
-
-// 	if(isset($_GET['delete'])){
-// 		$_SESSION['product_'. $_GET['delete']]=0;
-// 		redirect("cart.php");
-// 	}
-?>
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -98,15 +72,15 @@
 		<!-- Name -->
 		<div class="cart_item_product d-flex flex-row align-items-center justify-content-start">
 			<div class="cart_item_image">
-				<div><img src="images/cart_1.jpg" alt=""></div>
+				<div><img src="<?php echo $row['product_image']?>" alt=""></div>
 			</div>
 			<div class="cart_item_name_container">
-				<div class="cart_item_name"><a href="#">Smart Phone Deluxe Edition</a></div>
-				<div class="cart_item_edit"><a href="#">Edit Product</a></div>
+				<div class="cart_item_name"><a href="#"><?php echo $row['product_title']?></a></div>
+				<!-- <div class="cart_item_edit"><a href="#">Edit Product</a></div> -->
 			</div>
 		</div>
 		<!-- Price -->
-		<div class="cart_item_price">$790.90</div>
+		<div class="cart_item_price"><?php echo $row['product_price']?></div>
 		<!-- Quantity -->
 		<div class="cart_item_quantity">
 			<div class="product_quantity_container">
@@ -145,7 +119,7 @@
 						<div class="section_title">Shipping method</div>
 						<div class="section_subtitle">Select the one you want</div>
 						<div class="delivery_options">
-							<label class="delivery_option clearfix">Next day delivery
+							<!-- <label class="delivery_option clearfix">Next day delivery
 								<input type="radio" name="radio">
 								<span class="checkmark"></span>
 								<span class="delivery_price">$4.99</span>
@@ -154,7 +128,7 @@
 								<input type="radio" name="radio">
 								<span class="checkmark"></span>
 								<span class="delivery_price">$1.99</span>
-							</label>
+							</label> -->
 							<label class="delivery_option clearfix">Personal pickup
 								<input type="radio" checked="checked" name="radio">
 								<span class="checkmark"></span>
@@ -164,7 +138,7 @@
 					</div>
 
 					<!-- Coupon Code -->
-					<div class="coupon">
+					<!-- <div class="coupon">
 						<div class="section_title">Coupon code</div>
 						<div class="section_subtitle">Enter your coupon code</div>
 						<div class="coupon_form_container">
@@ -173,7 +147,7 @@
 								<button class="button coupon_button"><span>Apply</span></button>
 							</form>
 						</div>
-					</div>
+					</div> -->
 				</div>
 
 				<div class="col-lg-6 offset-lg-2">

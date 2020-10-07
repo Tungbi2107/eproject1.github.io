@@ -156,7 +156,7 @@
 					<div class="product_grid">
 
 						<!-- Product -->
-						<?php get_products(); ?>
+						<?php get_products_4(); ?>
 						
 
 					</div>
