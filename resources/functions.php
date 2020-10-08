@@ -143,7 +143,23 @@
     function get_products_in_cat_page(){
         $query = query("SELECT * FROM products WHERE cat_id = ". escape_string($_GET['id']) . "");
         confirm($query);
-
+        while( $row = fetch_array($query)){
+			$product = <<<DELIMETER
+			<div class="product">
+				<div class="product_image"><a href="product.php?id={$row['product_id']}&cat_id={$row['cat_id']}"><img src="../resources/uploads/{$row['product_image']}" alt=""></a></div>
+					<div class="product_extra product_new"><a href="product.php?id={$row['product_id']}&cat_id={$row['cat_id']}">New</a></div>
+						<div class="product_content">
+							<div class="product_title"><a href="product.php?id={$row['product_id']}&cat_id={$row['cat_id']}">{$row['product_title']}</a></div>
+							<div class="product_price">&#36;{$row['product_price']}</div>
+						</div>
+			</div>
+			DELIMETER;
+        echo $product;
+        }
+	}
+	function get_products_in_cat_page1(){
+        $query = query("SELECT * FROM products");
+        confirm($query);
         while( $row = fetch_array($query)){
 			$product = <<<DELIMETER
 			<div class="product">
@@ -165,7 +181,7 @@
         while( $row = fetch_array($query)){
 			$product = <<<DELIMETER
 			<div class="product">
-				<div class="product_image"><a href="product.php?id={$row['product_id']}&cat_id={$row['cat_id']}"><img src="{$row['product_image']}" alt=""></a></div>
+				<div class="product_image"><a href="product.php?id={$row['product_id']}&cat_id={$row['cat_id']}"><img src="../resources/uploads/{$row['product_image']}" alt=""></a></div>
 					<div class="product_extra product_new"><a href="product.php?id={$row['product_id']}">New</a></div>
 						<div class="product_content">
 							<div class="product_title"><a href="product.php?id={$row['product_id']}">{$row['product_title']}</a></div>
@@ -189,7 +205,18 @@
 						echo $total;
 					}
 				}
-    
+    function show_total_product1(){
+        $query = query("SELECT COUNT(product_id) FROM products");
+        confirm($query);
+
+        while( $row = fetch_array($query)){
+			$total = <<<DELIMETER
+			<div class="results">Showing <span>{$row['COUNT(product_id)']}</span> results</div>
+			DELIMETER;
+
+						echo $total;
+					}
+				}
 /*---------------------------------------------------BACK END -----------------------------------------------------*/
 /*---------------------------------------------------BACK END -----------------------------------------------------*/
 /*---------------------------------------------------BACK END -----------------------------------------------------*/
@@ -359,7 +386,7 @@
 								<td>{$row['level']}</td>
 								<td> 
 									<a class="btn btn-danger" href="../../resources/templates/back/delete_product.php?id={$row['user_id']}">Delete</a>
-									 <a class="btn btn-info" href="../admin/update_product.php?id={$row['user_id']}">Update</a>
+									<a class="btn btn-info" href="../admin/update_product.php?id={$row['user_id']}">Update</a>
 									 </td>
 							</tr>
 							DELIMETER;

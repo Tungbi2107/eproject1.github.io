@@ -24,7 +24,7 @@
 									</li>
 									<li class="hassubs">
 
-										<a href="#">Categories</a>
+										<a href="categories1.php">Categories</a>
 
 										<ul>
 

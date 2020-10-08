@@ -55,7 +55,7 @@
 					
 					<!-- Product Sorting -->
 					<div class="sorting_bar d-flex flex-md-row flex-column align-items-md-center justify-content-md-start">
-						<?php show_total_product() ?>
+						<?php show_total_product1() ?>
 						<div class="sorting_container ml-md-auto">
 							<div class="sorting">
 								<ul class="item_sorting">
@@ -80,7 +80,7 @@
 					<div class="product_grid">
 
 						<!-- Product -->
-						<?php get_products_in_cat_page(); ?>
+						<?php get_products_in_cat_page1(); ?>
 					
 						
 

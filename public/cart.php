@@ -3,22 +3,30 @@
 <?php include(TEMPLATE_FRONT . DS . "footer.php"); ?>
 
 <?php 
-if(isset($_GET['action']) && $_GET['action']=="add"){ 
-	$id=$_GET['id']; 
-	$sql=("SELECT * FROM products WHERE product_id='{$id}'"); 
-		$query=mysqli_query($connection,$sql); 
-		if(mysqli_num_rows($query)!=0){ 
-			$row=mysqli_fetch_array($query); 
-			$_SESSION['cart'][$row['product_id']]=array( 
-				"product_image" => $row['product_image'],
-				"product_title" => $row['product_title'],
-				"product_price" => $row['product_price'],
-				"product_quantity" => $row['product_quantity'],
-				); 
-		}else{         
-			$message="This product id it's invalid!";            
+	if(isset($_GET['action']) && $_GET['action']=="add"){ 
+		$id=$_GET['id']; 
+		$sql=("SELECT * FROM products WHERE product_id='{$id}'"); 
+			$query=mysqli_query($connection,$sql); 
+			if(mysqli_num_rows($query)!=0){ 
+				$row=mysqli_fetch_array($query); 
+				$_SESSION['cart'][$row['product_id']]=array( 
+					"product_image" => $row['product_image'],
+					"product_title" => $row['product_title'],
+					"product_price" => $row['product_price'],
+					"product_quantity" => $row['product_quantity'],
+					); 
+			}else{         
+				$message="This product id it's invalid!";            
+			}   
 		}   
-	}   
+
+	if(isset($_GET['action']) && $_GET['action']=="clear"){ 
+		if(isset($_SESSION['cart']))
+		{ 
+			unset($_SESSION['cart']);
+		}
+
+	}	
 ?>
 <?php include(TEMPLATE_FRONT . DS . "header.php"); ?>
 	<link rel="stylesheet" type="text/css" href="styles/cart_responsive.css">
@@ -57,7 +65,7 @@ if(isset($_GET['action']) && $_GET['action']=="add"){
 									<div class="breadcrumbs">
 										<ul>
 											<li><a href="index.php">Home</a></li>
-											<li><a href="categories.php">Categories</a></li>
+											<li><a href="categories1.php">Categories</a></li>
 											<li>Shopping Cart</li>
 										</ul>
 									</div>
@@ -113,13 +121,13 @@ if(isset($_GET['action']) && $_GET['action']=="add"){
 								</div>
 							</div>
 							<!-- Price -->
-							<div class="cart_item_price">$<?php echo $row['product_price']?></div>
+							<div class="cart_item_price" id="cartItemPrice<?php echo $row['product_id']?>">$<?php echo $row['product_price']?></div>
 							<!-- Quantity -->
 							<div class="cart_item_quantity">
 								<div class="product_quantity_container">
 									<div class="product_quantity clearfix">
 										<span>Qty</span>
-										<input id="quantity_input" type="text" pattern="[0-9]*" value="1">
+										<input onkeyup	="onQuantityUpdated(event, <?php echo $row['product_id']?>)" id="quantity_input" type="text" pattern="[0-9]*" value="1">
 										<div class="quantity_buttons">
 											<div id="quantity_inc_button" class="quantity_inc quantity_control"><i
 													class="fa fa-chevron-up" aria-hidden="true"></i></div>
@@ -131,7 +139,7 @@ if(isset($_GET['action']) && $_GET['action']=="add"){
 							</div>
 
 							<!-- Total -->
-							<div class="cart_item_total">$790.90</div>
+							<div class="cart_item_total" id="cartItemTotal<?php echo $row['product_id']?>">$790.90</div>
 
 						</div>
 						
@@ -145,9 +153,9 @@ if(isset($_GET['action']) && $_GET['action']=="add"){
 					<div class="col">
 						<div
 							class="cart_buttons d-flex flex-lg-row flex-column align-items-start justify-content-start">
-							<div class="button continue_shopping_button"><a href="#">Continue shopping</a></div>
+							<div class="button continue_shopping_button"><a href="categories1.php">Continue shopping</a></div>
 							<div class="cart_buttons_right ml-lg-auto">
-								<div class="button clear_cart_button"><a href="#">Clear cart</a></div>
+								<div class="button clear_cart_button"><a href="cart.php?action=clear">Clear cart</a></div>
 								<div class="button update_cart_button"><a href="#">Update cart</a></div>
 							</div>
 						</div>
@@ -237,6 +245,16 @@ if(isset($_GET['action']) && $_GET['action']=="add"){
 	<script src="plugins/easing/easing.js"></script>
 	<script src="plugins/parallax-js-master/parallax.min.js"></script>
 	<script src="js/cart.js"></script>
+	<!-- <script>
+		function onQuantityUpdated(e, id) {
+			console.log(e)
+			let value = parseFloat(e.target.value);
+			let price = $("#cartItemPrice" + id).html();
+			console.log(e.target.value, value, price)
+			let newTotal = value * parseFloat(price.replace('$', ''));
+			$("#cartItemTotal" + id).html('$' + newTotal);
+		}
+	</script> -->
 </body>
 
 </html>

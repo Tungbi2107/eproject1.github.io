@@ -1021,6 +1021,10 @@ section
 	font-size: 14px;
 	font-weight: 400;
 	color: #FFFFFF;
+	transition: .5s;
+}
+.avds_link a:hover{
+	color:red;
 }
 .avds_link a::after
 {
@@ -1092,10 +1096,14 @@ section
 .product_image
 {
 	width: 100%;
+	height: 280px;
 }
 .product_image img
 {
 	max-width: 100%;
+	height: 280px;
+	object-fit: contain;
+	object-position: center center;
 }
 .product_content
 {
@@ -1197,11 +1205,12 @@ section
 {
 	width: 391px;
 	height: 100%;
-	background: #e95a5a;
+	background: rgb(12 77 206 / 25%);
 	float: right;
 	padding-top: 28px;
 	padding-left: 42px;
 	padding-right: 30px;
+	border-radius: 130px;
 }
 .avds_xl_link
 {
