@@ -95,7 +95,7 @@
 				
 				<div class="row cart_items_row">
 				
-					<div class="col">
+				<div class="col">
 					<?php 
 							// Add item to cart
 							if(isset($_SESSION['cart'])&&$cartCount > 0){
@@ -245,7 +245,7 @@
 	<script src="plugins/easing/easing.js"></script>
 	<script src="plugins/parallax-js-master/parallax.min.js"></script>
 	<script src="js/cart.js"></script>
-	<!-- <script>
+	<script>
 		function onQuantityUpdated(e, id) {
 			console.log(e)
 			let value = parseFloat(e.target.value);
@@ -254,7 +254,7 @@
 			let newTotal = value * parseFloat(price.replace('$', ''));
 			$("#cartItemTotal" + id).html('$' + newTotal);
 		}
-	</script> -->
+	</script>
 </body>
 
 </html>
