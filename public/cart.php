@@ -123,8 +123,8 @@
 								$finaltotal = 0;
 								while($row = mysqli_fetch_array($query)){ 
 									$subtotal = $_SESSION['cart'][$row['product_id']]['product_quantity']*$row['product_price'];
-									$totalprice += $subtotal;
-									$finaltotal+= $totalprice;
+									
+									$totalprice+= $subtotal;
 							?>
 						<!-- Cart Item -->
 						<div class="cart_item d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-start">
@@ -162,7 +162,7 @@
 							<div class="cart_item_total" >$
 							<?php 
 							if(isset($_SESSION['cart'])&&$cartCount > 0){
-								echo $totalprice;
+								echo $subtotal;
 							} else
 							echo 0;
 						?>
@@ -238,7 +238,7 @@
 										<div class="cart_total_value ml-auto">
 														$<?php 
 											if(isset($_SESSION['cart'])&&$cartCount > 0){
-												echo $finaltotal;
+												echo $totalprice;
 											} else
 											echo 0;
 											?>
@@ -253,7 +253,7 @@
 										<div class="cart_total_value ml-auto">
 											$<?php 
 											if(isset($_SESSION['cart'])&&$cartCount > 0){
-												echo $finaltotal;
+												echo $totalprice;
 											} else
 											echo 0;
 											?>
