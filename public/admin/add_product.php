@@ -43,7 +43,7 @@
                     <div class="form-group row"> 
                         <label for="inputEmail2" class="col-3 col-lg-2 col-form-label text-right">Product Category</label>
                         <div class="col-9 col-lg-10"> 
-                            <select class="form-control" id="input-select" name="product_category_id">
+                            <select class="form-control" id="input-select" name="cat_id">
                                 <option >Choose Category</option>
                                 <?php show_categories_in_add_product()?>
                             </select> </div>

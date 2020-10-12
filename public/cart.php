@@ -13,7 +13,7 @@
 					"product_image" => $row['product_image'],
 					"product_title" => $row['product_title'],
 					"product_price" => $row['product_price'],
-					"product_quantity" => $row['product_quantity'],
+					"product_quantity" => 1,
 					); 
 			}else{         
 				$message="This product id it's invalid!";            
@@ -28,6 +28,20 @@
 
 	}	
 ?>
+
+<?php 
+	if(isset($_GET['action']) && $_GET['action']=="increase"){ 
+			$id=$_GET['id']; 
+			$_SESSION['cart'][$id]['product_quantity']++; 
+		}
+
+	if(isset($_GET['action']) && $_GET['action']=="decrease"){ 
+			$id=$_GET['id']; 
+			$_SESSION['cart'][$id]['product_quantity']--; 
+		}
+		
+?>
+
 <?php include(TEMPLATE_FRONT . DS . "header.php"); ?>
 	<link rel="stylesheet" type="text/css" href="styles/cart_responsive.css">
 <!DOCTYPE html>
@@ -106,7 +120,11 @@
 								$sql = substr($sql, 0, -1).")"; 
 								$query = mysqli_query($connection,$sql); 
 								$totalprice = 0; 
+								$finaltotal = 0;
 								while($row = mysqli_fetch_array($query)){ 
+									$subtotal = $_SESSION['cart'][$row['product_id']]['product_quantity']*$row['product_price'];
+									$totalprice += $subtotal;
+									$finaltotal+= $totalprice;
 							?>
 						<!-- Cart Item -->
 						<div class="cart_item d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-start">
@@ -127,19 +145,28 @@
 								<div class="product_quantity_container">
 									<div class="product_quantity clearfix">
 										<span>Qty</span>
-										<input onkeyup	="onQuantityUpdated(event, <?php echo $row['product_id']?>)" id="quantity_input" type="text" pattern="[0-9]*" value="1">
+										<input name="quantity[<?php echo $row['product_id'] ?>]" value="<?php echo $_SESSION['cart'][$row['product_id']]['product_quantity'] ?>">
 										<div class="quantity_buttons">
-											<div id="quantity_inc_button" class="quantity_inc quantity_control"><i
-													class="fa fa-chevron-up" aria-hidden="true"></i></div>
-											<div id="quantity_dec_button" class="quantity_dec quantity_control"><i
-													class="fa fa-chevron-down" aria-hidden="true"></i></div>
+											<div id="quantity_inc_button" class="quantity_inc quantity_control">
+												<a href="cart.php?id=<?php echo $row['product_id']?>&action=increase"><i class="fa fa-chevron-up" aria-hidden="true"></i></a>
+											</div>
+											<div id="quantity_dec_button" class="quantity_dec quantity_control">
+												<a href="cart.php?id=<?php echo $row['product_id']?>&action=decrease"><i class="fa fa-chevron-down" aria-hidden="true"></i></a>
+											</div>
 										</div>
 									</div>
 								</div>
 							</div>
 
 							<!-- Total -->
-							<div class="cart_item_total" id="cartItemTotal<?php echo $row['product_id']?>">$790.90</div>
+							<div class="cart_item_total" >$
+							<?php 
+							if(isset($_SESSION['cart'])&&$cartCount > 0){
+								echo $totalprice;
+							} else
+							echo 0;
+						?>
+							</div>
 
 						</div>
 						
@@ -208,7 +235,14 @@
 								<ul>
 									<li class="d-flex flex-row align-items-center justify-content-start">
 										<div class="cart_total_title">Subtotal</div>
-										<div class="cart_total_value ml-auto">$790.90</div>
+										<div class="cart_total_value ml-auto">
+														$<?php 
+											if(isset($_SESSION['cart'])&&$cartCount > 0){
+												echo $finaltotal;
+											} else
+											echo 0;
+											?>
+										</div>
 									</li>
 									<li class="d-flex flex-row align-items-center justify-content-start">
 										<div class="cart_total_title">Shipping</div>
@@ -216,7 +250,14 @@
 									</li>
 									<li class="d-flex flex-row align-items-center justify-content-start">
 										<div class="cart_total_title">Total</div>
-										<div class="cart_total_value ml-auto">$790.90</div>
+										<div class="cart_total_value ml-auto">
+											$<?php 
+											if(isset($_SESSION['cart'])&&$cartCount > 0){
+												echo $finaltotal;
+											} else
+											echo 0;
+											?>
+										</div>
 									</li>
 								</ul>
 							</div>
@@ -245,7 +286,7 @@
 	<script src="plugins/easing/easing.js"></script>
 	<script src="plugins/parallax-js-master/parallax.min.js"></script>
 	<script src="js/cart.js"></script>
-	<script>
+	<!-- <script>
 		function onQuantityUpdated(e, id) {
 			console.log(e)
 			let value = parseFloat(e.target.value);
@@ -254,7 +295,7 @@
 			let newTotal = value * parseFloat(price.replace('$', ''));
 			$("#cartItemTotal" + id).html('$' + newTotal);
 		}
-	</script>
+	</script> -->
 </body>
 
 </html>

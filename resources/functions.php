@@ -295,7 +295,7 @@
 			}
 		}			
 		function show_categories_in_add_product(){
-			$query = query("SELECT DISTINCT cat_id FROM `products`");
+			$query = query("SELECT DISTINCT cat_id FROM `categories`");
 			confirm($query);
 
 			while($row = fetch_array($query)){

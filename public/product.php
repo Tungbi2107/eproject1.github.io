@@ -87,11 +87,11 @@
 							<span>In Stock</span>
 						</div>
 						<div class="details_text">
-						<?php echo $row['product_description']?>
+						<?php echo round($row['product_description'],1)?>
 						<br>
 						<br>
 						<div class="availability">Download:</div>
-						<?php echo $row['product_word']?>
+						<a download href="../resources/uploads/<?php echo $row['product_word']?>"><?php echo $row['product_word']?></a>
 						</div>
 
 						<!-- Product Quantity -->
